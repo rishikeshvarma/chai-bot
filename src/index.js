@@ -2,6 +2,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const chai = require('./commands/chai');
 const quote = require('./commands/quote');
+const remind = require('./commands/remind');
 const { onCooldown } = require('./utils/cooldown');
 
 const client = new Discord.Client();
@@ -17,6 +18,7 @@ client.on('message', async (msg) => {
   if (onCooldown(msg.author.id, cmd, 5000)) return msg.react('⏳');
   if (cmd === 'chai') return chai(msg, args);
   if (cmd === 'quote') return quote(msg, args);
+  if (cmd === 'remind') return remind(msg, args);
   // TODO: !help
 });
 
