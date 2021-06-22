@@ -10,6 +10,8 @@ const PREFIX = '!';
 
 client.on('ready', () => {
   console.log(`chai-bot online as ${client.user.tag}`);
+  // TODO: daily 4:30 pm chai break message (node-cron?)
+  // TODO: move the channel id to .env
 });
 
 client.on('message', async (msg) => {
@@ -20,6 +22,7 @@ client.on('message', async (msg) => {
   if (cmd === 'quote') return quote(msg, args);
   if (cmd === 'remind') return remind(msg, args);
   // TODO: !help
+  // TODO: !leaderboard of who drank the most chai
 });
 
 client.login(process.env.DISCORD_TOKEN);

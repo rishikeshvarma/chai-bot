@@ -6,6 +6,7 @@ module.exports = async function remind(msg, args) {
   const what = args.slice(1).join(' ') || 'chai';
   // TODO: reminders vanish when the bot restarts, save them somewhere
   // TODO: let people cancel a reminder
+  // FIXME: long reminders (> 24 days) overflow setTimeout
   setTimeout(() => msg.reply(`⏰ ${what}`), ms);
   return msg.react('👍');
 };
